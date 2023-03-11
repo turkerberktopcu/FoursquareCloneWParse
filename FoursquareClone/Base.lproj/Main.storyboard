@@ -128,10 +128,26 @@
                     <view key="view" contentMode="scaleToFill" id="3qK-kj-l0E">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ghY-xC-Zwt">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NRf-xI-Wko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NRf-xI-Wko" firstAttribute="bottom" secondItem="ghY-xC-Zwt" secondAttribute="bottom" id="bjl-pu-J9z"/>
+                            <constraint firstItem="ghY-xC-Zwt" firstAttribute="top" secondItem="NRf-xI-Wko" secondAttribute="top" id="gSy-Rr-9hA"/>
+                            <constraint firstItem="ghY-xC-Zwt" firstAttribute="leading" secondItem="NRf-xI-Wko" secondAttribute="leading" id="rDs-Q4-lLN"/>
+                            <constraint firstItem="NRf-xI-Wko" firstAttribute="trailing" secondItem="ghY-xC-Zwt" secondAttribute="trailing" id="zPl-Go-wC6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h17-zc-iox"/>
+                    <connections>
+                        <outlet property="tableView" destination="ghY-xC-Zwt" id="d0M-0F-A0v"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toOpeningVC" modalPresentationStyle="fullScreen" id="N8p-Gt-af0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9z-N2-C7F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +156,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pm8-pV-PxY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tE-tT-tfw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="9tE-tT-tfw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2l3-4V-EHr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -156,6 +172,9 @@
             <point key="canvasLocation" x="1736.6412213740457" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="N8p-Gt-af0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
