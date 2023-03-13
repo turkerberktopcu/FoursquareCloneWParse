@@ -44,7 +44,7 @@ class PlacesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     @objc func addButtonClicked(){
-        
+        self.performSegue(withIdentifier: "toAddPlaceVC", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
