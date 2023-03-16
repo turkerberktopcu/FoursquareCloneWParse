@@ -71,7 +71,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B238DF5529C279F700038A25 /* New Group */ = {
+		B238DF5529C279F700038A25 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B2EEC0D929BB9B6E00C5C36A /* ViewController.swift */,
@@ -81,7 +81,7 @@
 				B238DF5129C2173300038A25 /* DetailsVC.swift */,
 				B238DF5629C27A2100038A25 /* MapVC.swift */,
 			);
-			path = "New Group";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		B2EEC0C929BB9B6E00C5C36A = {
@@ -105,7 +105,7 @@
 		B2EEC0D429BB9B6E00C5C36A /* FoursquareClone */ = {
 			isa = PBXGroup;
 			children = (
-				B238DF5529C279F700038A25 /* New Group */,
+				B238DF5529C279F700038A25 /* Controllers */,
 				B2EEC0D529BB9B6E00C5C36A /* AppDelegate.swift */,
 				B2EEC0D729BB9B6E00C5C36A /* SceneDelegate.swift */,
 				B2EEC0DB29BB9B6E00C5C36A /* Main.storyboard */,

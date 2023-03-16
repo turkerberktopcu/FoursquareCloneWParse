@@ -12,6 +12,8 @@ struct Places {
     let placeType: String?
     let placeDetails: String?
     let imageData: Data?
+    var latitude: Double?
+    var longitude: Double?
     
     init(placeName: String?, placeType: String?, placeDetails: String?, imageData: Data?) {
         self.placeName = placeName
