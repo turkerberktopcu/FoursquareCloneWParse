@@ -47,10 +47,10 @@ class AddPlaceVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMapVC" {
-            let place = Places(placeName: self.nameText.text, placeType: self.typeText.text, placeDetails: self.detailsText.text, imageData: self.imageView.image?.jpegData(compressionQuality: 0.7))
-            let destination = segue.destination as! MapVC
-            destination.placeToSave = place
-            
+            if let navDest = segue.destination as? UINavigationController, let destination = navDest.topViewController as? MapVC{
+                let place = Places(placeName: self.nameText.text, placeType: self.typeText.text, placeDetails: self.detailsText.text, imageData: self.imageView.image?.jpegData(compressionQuality: 0.7))
+                destination.placeToSave = place
+            }
         }
     }
     
