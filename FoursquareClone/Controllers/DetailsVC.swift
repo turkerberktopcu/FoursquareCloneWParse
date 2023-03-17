@@ -30,14 +30,48 @@ class DetailsVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(back))
         
         
         
         }
+        
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reUseId = "identifier"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reUseId)
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reUseId)
+            pinView?.canShowCallout = true
+            let button = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        } else {
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
     
-    @objc func back(){}
-
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if self.longitude != 0.0 && self.latitude != 0.0 {
+            let requestLocation = CLLocation(latitude: self.latitude!, longitude: self.longitude!)
+            CLGeocoder().reverseGeocodeLocation(requestLocation) { placeMarkArr, error in
+                if let markList = placeMarkArr {
+                    if markList.count > 0 {
+                        let mkPlaceMark = MKPlacemark(placemark: markList[0])
+                        let mapItem = MKMapItem(placemark: mkPlaceMark)
+                        mapItem.name = self.nameLabel.text
+                        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                        mapItem.openInMaps(launchOptions: launchOptions)
+                    }
+                }
+            }
+            
+        }
+    }
+        
     func createAnnotation(){
         
         let location = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
